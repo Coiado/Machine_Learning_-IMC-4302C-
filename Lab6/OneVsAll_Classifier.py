@@ -28,7 +28,8 @@ def Train_OneVsAll(X,Y,lambda_):
         y=(Y==digit)                                  # create binary label vector for each classifier
         y=y.astype(int)
         
-        logistic_regr= # ** your code here**    # create logistic regression classifier object
+
+        logistic_regr= # ** your code here**    # create logistic regression classifier object with regularization parameter (predifined in the library) C=1/lambda
         # ** your code here**    # train/fit logistic regression classifier object
         
         Logistic_Regr_List.append(logistic_regr)      # append the trained logistic classifier to the output list
