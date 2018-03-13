@@ -21,16 +21,16 @@ def Train_OneVsAll(X,Y,lambda_):
     Return:
         Logistic_Regr_List: list of K logistic classifier one per class
     """
-    
+
     K=np.unique(Y).shape[0] # number of class
     Logistic_Regr_List=[]
     for digit in range(K):
         y=(Y==digit)                                  # create binary label vector for each classifier
         y=y.astype(int)
         
-
-        logistic_regr= # ** your code here**    # create logistic regression classifier object with regularization parameter (predifined in the library) C=1/lambda
-        # ** your code here**    # train/fit logistic regression classifier object
+        
+        logistic_regr=  SLogisticRegression(C=1/lambda_)  # create logistic regression classifier object with regularization parameter (predifined in the library) C=1/lambda
+        logistic_regrS.fit(X[:,digit], y)   # train/fit logistic regression classifier object
         
         Logistic_Regr_List.append(logistic_regr)      # append the trained logistic classifier to the output list
     return Logistic_Regr_List
@@ -50,7 +50,7 @@ def Predict_OneVsAll(classifier_list,X):
     
     # calculate the probabilty for an input image to have as label the number of classifier 'digit' from 0 to K
     for digit in range(K):
-        pred_proba[:,digit]=  # ** your code here**   
+        pred_proba[:,digit]=  LogisticRegression.predict_proba(X)   
         
     y_pred= # ** your code here**   
     return y_pred
