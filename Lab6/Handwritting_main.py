@@ -11,7 +11,7 @@ import OneVsAll_Classifier, predict_your_digits
 import Display_digits as Disp
 
 # load data
-hand_writing = # ** your code here**  
+hand_writing = np.loadtxt('hand_writing.txt') 
 
 # extract columns
 m = hand_writing.shape[0] # number of samples/images in hand_writing dataset
@@ -31,17 +31,13 @@ lambda_ = .1 # reguralization parameter
 Logistic_Regr_List = OneVsAll_Classifier.Train_OneVsAll(X,Y,lambda_)
 
 #predict class on training dataset
-y_pred = # ** your code here**   
+y_pred = OneVsAll_Classifier.Predict_OneVsAll(Logistic_Regr_List,X)# ** your code here**   
 
 # calculate train accuracy
-train_accuracy = # ** your code here** 
+train_accuracy = np.sum(Y==y_pred[:,np.newaxis])/m*100 # ** your code here** 
 print("train accuracy= ",train_accuracy ,"%")
 
 # test our multiclass classifier
-# ** your code here** 
-
 for c in range(4):
     predict_digit=predict_your_digits.predict("test_digit"+str(c)+".jpg",Logistic_Regr_List)
     print("the digit in the image is",c," our One Vs All classifier predict",predict_digit)
-
-
